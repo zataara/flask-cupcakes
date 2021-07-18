@@ -21,4 +21,14 @@ def root():
     '''Homepage redirects to list of all users'''
     return redirect('/users')
 
-#
+@app.route('/api/cupcakes')
+def get_cupcakes():
+    all_cupcakes = [cupcake.serialize() for cupcake in Cupcake.query.all()]
+    return jsonify(cupcakes=all_cupcakes)
+
+
+@app.route.('/api/cupcakes/<int:cupcake-id>')
+def get_cupcake():
+
+@app.route.('/api/cupcakes/<int:cupcake-id>')
+def create_cupcake():
