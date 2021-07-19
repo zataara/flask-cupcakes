@@ -30,7 +30,7 @@ def get_cupcakes():
 @app.route('/api/cupcakes/<int:cupcake_id>')
 def get_cupcake(cupcake_id):
     '''Returns single cupcake by id'''
-    cupcake = Todo.query.get_or_404(cupcake_id)
+    cupcake = Cupcake.query.get_or_404(cupcake_id)
     return jsonify(cupcake=cupcake.serialize())
 
 @app.route('/api/cupcakes', methods=['POST'])
