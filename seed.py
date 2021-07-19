@@ -1,5 +1,6 @@
 from models import db
 from app import app
+from models import Cupcake
 
 #Create all tables
 db.drop_all()
