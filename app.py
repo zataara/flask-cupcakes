@@ -1,6 +1,6 @@
-from flask import Flask, request, render_template, redirect, flash, session
+from flask import Flask, request, render_template, redirect, flash, session, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
-from models import db, connect_db
+from models import db, connect_db, Cupcake
 # from secrets import API_SECRET_KEY
 
 app = Flask(__name__)
@@ -16,10 +16,7 @@ connect_db(app)
 db.create_all()
 
 ### Main routes
-@app.route('/')
-def root():
-    '''Homepage redirects to list of all users'''
-    return redirect('/users')
+
 
 
 ## API Routes
@@ -47,5 +44,5 @@ def create_cupcake():
     )
     db.session.add(new_cupcake)
     db.session.commit()
-    response_json = jsonify(todo=new_tod.serialize())
+    response_json = jsonify(cupcake=new_cupcake.serialize())
     return (response_json, 201)
