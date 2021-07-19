@@ -7,7 +7,6 @@ def connect_db(app):
         db.init_app(app)
 
 
-DEFAULT_IMAGE = "https://tinyurl.com/demo-cupcake"
 
 class Cupcake(db.Model):
     '''Database model for Users'''
@@ -30,7 +29,7 @@ class Cupcake(db.Model):
                         nullable=False)
     image = db.Column(db.Text,
                         nullable=False,
-                        default=DEFUALT_IMAGE)
+                        default="https://tinyurl.com/demo-cupcake")
 
     def serialize(self):
         return {
