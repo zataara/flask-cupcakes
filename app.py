@@ -16,7 +16,11 @@ connect_db(app)
 db.create_all()
 
 ### Main routes
+@app.route('/')
+def show_cupcake():
+    '''Homepage to show all cupcakes'''
 
+    return render_template('index.html')
 
 
 ## API Routes
