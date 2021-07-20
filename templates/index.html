@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+
+{% block body %}
+<h1>All Cupcakes</h1>
+    <ul id='cupcake-list'>
+
+    </ul>
+
+<h2>Add a New Cupcake</h2>
+    <form id='new-cupcake-form'>
+        <div>
+            <label for='flavor'>Flavor</label>
+            <input name='flavor' id='flavor'>
+        </div>
+        <div>
+            <label for='size'>Size</label>
+            <input name='size' id='size'>
+        </div>
+        <div>
+            <label for='rating'>Rating</label>
+            <input name='rating' id='rating'>
+        </div>
+        <div>
+            <label for='image'>Image</label>
+            <input name='image' id='image'>
+        </div>
+        <div>
+            <button type='submit'>Submit</button>
+        </div>
+    </form>
+
+
+
+{% endblock %}
