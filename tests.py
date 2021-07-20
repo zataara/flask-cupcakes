@@ -84,6 +84,13 @@ class CupcakeViewsTestCase(TestCase):
                 }
             })
 
+    def test_get_missing_cupcake(self):
+        with app.test_client() as client:
+            url = '/api/cupcakes/9999999999999999'
+            resp = client.get(url)
+
+            self.asserEqual(resp.status_code, 404)
+
     def test_create_cupcake(self):
         with app.test_client() as client:
             url = "/api/cupcakes"
@@ -110,7 +117,7 @@ class CupcakeViewsTestCase(TestCase):
     
     def test_update_cupcake(self):
         with app.test_client() as client:
-            url = '/api/cupcakes/{self.cupcake.id}'
+            url = f'/api/cupcakes/{self.cupcake.id}'
             resp = client.patch(url, json=CUPCAKE_DATA_2)
 
             self.assertEqual(resp.status_code, 200)
@@ -138,7 +145,7 @@ class CupcakeViewsTestCase(TestCase):
 
     def test_delete_cupcake(self):
         with app.test_client() as client:
-            url = '/api/cupcakes/{self.cupcake.id}'
+            url = f'/api/cupcakes/{self.cupcake.id}'
             resp = client.delete(url)
 
             self.assertEqual(resp.status_code, 200)
