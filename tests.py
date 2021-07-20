@@ -142,3 +142,11 @@ class CupcakeViewsTestCase(TestCase):
             })
 
             self.assertEqual(Cupcake.query.count(), 0)
+
+    def test_delete_missing_cupcake(self):
+        with app.test_client() as client:
+            url = '/api/cupcakes/999999999999999'
+            resp = client.delete(url)
+
+            self.assertEqual(resp.status_code, 404)
+            
